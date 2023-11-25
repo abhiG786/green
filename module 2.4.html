@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Number Sorting</title>
+</head>
+<body>
+
+<script>
+    // Initialize an array to store numbers
+    let numbers = [];
+
+    // Prompt the user for numbers until they enter zero
+    let input = prompt("Enter a number (enter 0 to stop):");
+
+    while (input !== null && input !== "" && parseFloat(input) !== 0) {
+        // Validate if the input is a valid number
+        if (!isNaN(input)) {
+            numbers.push(parseFloat(input));
+        }
+
+        // Prompt for the next number
+        input = prompt("Enter a number (enter 0 to stop):");
+    }
+
+    // Sort the numbers in descending order
+    numbers.sort(function(a, b) {
+        return b - a;
+    });
+
+    // Print the sorted numbers to the console
+    console.log("Numbers in descending order:");
+    for (let number of numbers) {
+        console.log(number);
+    }
+</script>
+
+</body>
+</html>

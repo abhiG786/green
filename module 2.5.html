@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Number Checking</title>
+</head>
+<body>
+
+<script>
+    // Initialize an array to store numbers
+    let numbers = [];
+
+    // Function to check if a number has already been entered
+    function hasDuplicate(number) {
+        return numbers.includes(number);
+    }
+
+    // Prompt the user for numbers
+    let input = prompt("Enter a number (enter 0 to stop):");
+
+    while (input !== null && input !== "" && parseFloat(input) !== 0) {
+        // Validate if the input is a valid number
+        if (!isNaN(input)) {
+            let currentNumber = parseFloat(input);
+
+            // Check if the number has already been entered
+            if (hasDuplicate(currentNumber)) {
+                alert(`Number ${currentNumber} has already been entered. Stopping operation.`);
+                break;
+            }
+
+            numbers.push(currentNumber);
+        }
+
+        // Prompt for the next number
+        input = prompt("Enter a number (enter 0 to stop):");
+    }
+
+    // Sort the numbers in ascending order
+    numbers.sort(function(a, b) {
+        return a - b;
+    });
+
+    // Print the sorted numbers to the console
+    console.log("Numbers in ascending order:");
+    for (let number of numbers) {
+        console.log(number);
+    }
+</script>
+
+</body>
+</html>

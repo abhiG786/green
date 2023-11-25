@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Participant Names</title>
+</head>
+<body>
+
+<script>
+    // Prompt the user for the number of participants
+    let numParticipants = prompt("Enter the number of participants:");
+
+    // Validate if the input is a positive integer
+    while (!Number.isInteger(+numParticipants) || +numParticipants <= 0) {
+        numParticipants = prompt("Please enter a valid positive integer for the number of participants:");
+    }
+
+    // Initialize an array to store participant names
+    let participantNames = [];
+
+    // Prompt the user for the names of participants
+    for (let i = 1; i <= numParticipants; i++) {
+        let name = prompt(`Enter the name of participant ${i}:`);
+        participantNames.push(name);
+    }
+
+    // Sort the participant names in alphabetical order
+    participantNames.sort();
+
+    // Create an ordered list element
+    let olElement = document.createElement("ol");
+
+    // Add list items with participant names to the ordered list
+    for (let name of participantNames) {
+        let liElement = document.createElement("li");
+        liElement.textContent = name;
+        olElement.appendChild(liElement);
+    }
+
+    // Append the ordered list to the body of the HTML document
+    document.body.appendChild(olElement);
+</script>
+
+</body>
+</html>
